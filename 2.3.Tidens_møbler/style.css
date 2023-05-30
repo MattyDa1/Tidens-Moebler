@@ -1,0 +1,806 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+v2.0 | 20110126
+License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda&family=Karla&display=swap');
+    
+/*Generelt*/
+body {
+    font-family: 'Karla', sans-serif;
+    overflow-x: hidden;
+    overflow-y: auto;  
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    padding-top: 93px;
+    width: 100%;
+}
+
+/*Navigationsbar*/
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+nav {
+    background-color: white;
+    min-height: 93px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 24px;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+}
+
+nav li {
+    list-style: none;
+}
+
+nav li a {
+    color: black;
+    text-decoration: none;
+}
+
+.nav_menu {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 60px;
+    width: 100%;
+}
+
+.logo {
+    font-size: 35px;
+    font-family: 'Bodoni Moda', serif;
+    font-weight: 600;
+    color: black;
+}
+
+.nav_streg {
+    margin: 0px -30px;
+}
+
+.nav_link {
+    font-family: 'Bodoni Moda', serif;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 8px 0px;
+}
+
+.nav_link:hover {
+    color: gray;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.nav_width {
+    display: none;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-end;
+    float: right;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: white;
+}
+
+/*Forsiden*/
+#myVideo {
+    position: static;
+    min-width: 100%; 
+    min-height: 100%;
+    margin-bottom: 120px;
+}
+
+.slides {
+    display: none;
+}
+
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+  align-items: center;
+}
+
+.f_slides {
+    width: 100%;
+    max-height: 500px;
+    vertical-align: middle;
+}
+
+.dots {
+    text-align:center;
+    margin-bottom: 120px;
+}
+
+.prik {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
+}
+
+/*Produkter*/
+.produkter {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 577px;
+    margin-top: 80px;
+}
+
+.produkter_img {
+    width: 500px;
+    height: 500px;
+}
+
+.card {
+    margin: 0px auto;
+    background-color: transparent;
+    width: 500px;
+    height: 500px;
+    perspective: 1000px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  -webkit-box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.card-back {
+    background-image: linear-gradient(to top right, #DEC3BC, #DFF5FF);  
+    color: black;
+    transform: rotateY(180deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Bodoni Moda', serif;
+    font-size: 60px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+/*Lamper & Møbler*/
+.toplinks {
+    display: flex;
+    flex-direction: row;
+    margin: 10px 40px;
+}
+
+.toptxt {
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+}
+
+.topoverskift {
+    font-size: 40px;
+    font-family: 'Bodoni Moda', serif;
+    color: black;
+    font-weight: 600;
+    margin: 40px 200px;
+}
+
+.produkter_grid {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-around;
+}
+
+.txtdec {
+    text-decoration: none;
+}
+
+.grid_imgs {
+    height: 500px;
+    width: auto;
+    display: block;
+    margin: 0px auto;
+}
+
+.prod_txt {
+    width: 100%;
+    font-size: 30px;
+    font-family: 'Bodoni Moda', serif;
+    color: black;
+    font-weight: 500;
+    margin: 40px 0px;
+}
+
+.b_line {
+    height: 1px;
+    background-color: black;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+/*Produktet*/
+.p_overall {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    min-height: 657px;
+}
+
+.p_left {
+    width: 50%;
+    margin: 0px 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.p_slides {
+  display: none;
+  margin-top: 20px;
+}
+
+.produktet_top_img {
+    width: 500px;
+    height: 500px;
+}
+
+.p_billeder {
+    display: flex;
+    flex-direction: row;
+    gap: 60px;
+    margin: 20px 0px;
+}
+
+.column1 {
+  float: left;
+  width: 110px;
+  height: auto;
+}
+
+.produktet_bot_img {
+    opacity: 0.6;
+    cursor: pointer;
+    width: 110px;
+}
+
+.produktet_bot_img:hover {
+  opacity: 1;
+}
+
+.Prod_navn {
+    color: black;
+    font-family: 'Bodoni Moda', serif;
+    font-size: 50px;
+    margin-top: 25px;
+    font-weight: 600;
+    margin: 40px 20px;
+}
+
+.p_right {
+    width: 50%;
+    margin: 0px 25px;
+}
+
+.p_header {
+    padding: 10px 20px;
+}
+
+.p_text {
+    line-height: 1.5rem;
+    width: 570px;
+}
+
+.p_question {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    border: black 1px solid;
+    margin-top: 50px;
+    padding: 10px;
+    margin-left: 20px;
+    background-image: linear-gradient(to top right, #DEC3BC, #DFF5FF);
+}
+
+.p_answer {
+    width: 50%;
+    -webkit-box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
+    margin: -10px 0px 0px 30px;
+}
+
+.weight {
+    font-weight: 600;
+}
+
+/*hvem er vi*/
+.h_m {
+    color: black;
+    text-align: center;
+    padding: 50px 80px;
+}
+
+.h_top {
+    padding-top: 25px;
+}
+
+.h_vmv {
+    text-align:center;
+    color: black;
+    font-family: 'Bodoni Moda', serif;
+    font-size: 25px;
+}
+
+.h_bgimg-3 {
+    position: relative;
+    opacity: 0.65;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.h_designersofa {
+    background-image: url("img/designersofa.jpg");
+    min-height: 400px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+}
+
+.h_bordogreol {
+    background-image: url("img/reologbord.jpg");
+    min-height: 400px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+}
+
+.h_stole {
+    background-image: url("img/stole.jpg");
+    min-height: 400px;
+    width: 100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.h_a{
+    font-family: 'Karla', sans-serif;
+    color: black;
+    font-size: 17px;
+}
+
+.h_kim, .h_morten {
+    -webkit-box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    width: 350px;
+    height: 500px;
+    margin: 0px 5%;
+}
+
+.h_km{
+    width: 200px;
+    height: auto;
+}
+
+.h_1{
+    width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.h_v{
+    text-align: center;
+    font-family: 'Bodoni Moda', serif;
+    font-size: 34px;
+    color: black;
+    padding: 50px;
+}
+
+.h_kim:hover, .h_morten:hover {
+    -webkit-box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.h_container {
+    padding: 2px 16px;
+}
+
+.h_cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 35px 0px 70px;
+    width: 100%;
+}
+
+.h_n{
+    font-family: 'Bodoni Moda', serif;
+    font-size: 26px;
+    color: black;
+}
+
+.h_p{
+    font-style: italic;
+    font-family: 'Karla', sans-serif;
+    font-size: 16px;
+    color: black;
+}
+
+/*Kontakt*/
+.main_kontakt {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.gmaps_div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 450px;
+    padding: 100px;
+}
+
+.googlemaps {
+    width: 600px;
+    height: 450px;
+    border: 0px;
+}
+
+.kontakt_info {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 50%;
+    color: black;
+    margin-left: 35px;
+}
+
+.margin_tb {
+    margin: 20px 0px;
+}
+
+.bold {
+    font-weight: bold;
+    line-height: 2rem;
+}
+
+.kontakt_tekst {
+    line-height: 2rem;
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+}
+
+.kontakt_tekst:hover {
+    color: blue;
+}
+
+h5 {
+    line-height: 2rem;
+}
+
+.k_greviews {
+    height: 300px;
+    width: auto;
+}
+
+/*FAQ*/
+.faq {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    min-height: 707px;
+}
+
+.question {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    border: black 1px solid;
+    margin-top: 50px;
+    padding: 10px;
+    background-image: linear-gradient(to top right, #DEC3BC, #DFF5FF);  
+}
+
+.questtxt {
+    width: 100%;
+    font-size: 26px;
+    font-family: 'Bodoni Moda', serif;
+    color: black;
+}
+
+.faq_pil {
+    height: 20px;
+    width: auto;
+    margin-right: 10px;
+}
+
+.answer {
+    width: 50%;
+    -webkit-box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.answtxt {
+    font-size: 16px;
+    padding: 10px;
+    margin: 10px;
+    color: black;
+    line-height: 1.25;
+}
+
+/*404 Error*/
+.fejlside {
+    width: 100%;
+    height: 607px;
+}
+
+.fejlbillede {
+    width: auto;
+    height: auto;
+    display: block;
+    margin: 100px auto;
+}
+
+/*Footer*/
+footer {
+    list-style: none;
+    background: rgb(63,76,80);
+    background: linear-gradient(0deg, rgba(63,76,80,1) 0%, rgba(255,255,255,1) 100%);
+    line-height: 2.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    padding: 40px 0px 10px;
+    margin-top: 50px;
+}
+
+.footer_head {
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    line-height: 1.5rem;
+    margin: 20px 50px;
+}
+
+.bredde {
+    width: 60%;
+}
+
+.right {
+    margin-left: 100px;
+}
+
+.left {
+    margin-right: 100px;
+}
+
+.footer_content {
+    color: black;
+}
+
+.some {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.footer_icon {
+    width: 44px;
+    height: 44px;
+    margin: 0px 15px;
+}
+
+.footer_links {
+    text-decoration: none;
+    color: black;
+    display: block;
+    font-size: 0.9rem;
+    line-height: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+a.light:hover {
+    color: #dff5ff;
+}
+
+a.dark:hover {
+    color: blue;
+}
+
+.margin10 {
+    padding: 0px 10px;
+    display: flex;
+    align-items: center;
+}
+
+/* Turn off parallax scrolling for tablets and phones */
+@media only screen and (max-device-width: 1024px) {
+
+    .h_designersofa,
+    .h_bordogreol,
+    .h_stole {
+        background-attachment: scroll;
+    }
+}
+
+@media(max-width:900px) {
+    /*Navigations bar*/
+    .nav_menu {
+        gap: 30px;
+    }
+}
+
+@media(max-width:700px) {
+    /*Navigations bar*/
+    .nav_width {
+        width: 100%;
+        display: block;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .nav_menu {
+        position: fixed;
+        top: -100%;
+        gap: 0px;
+        flex-direction: column;
+        background-color: white;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+    }
+
+    .nav_item {
+        margin: 16px 0px;
+    }
+
+    .nav_menu.active {
+        top: 65px;
+        left: 0px;
+    }
+
+    /*Footer*/
+    footer {
+        width: 100%;
+        text-align: center;
+        flex-direction: column;
+    }
+    
+    .footer_head {
+        margin-top: 30px;
+    }
+}
